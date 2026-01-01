@@ -2,13 +2,12 @@
 session_start();
 require 'config/db.php';
 
-// التأكد أن المستخدم مسجل الدخول
 if (!isset($_SESSION['user'])) {
     header("Location: login.php");
     exit;
 }
 
-// جلب كل المستخدمين من قاعدة البيانات
+
 $stmt = $pdo->query("SELECT * FROM users");
 $users = $stmt->fetchAll();
 ?>
